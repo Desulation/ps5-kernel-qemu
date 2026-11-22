@@ -3,8 +3,15 @@
 # Output: kernel_raw_700.bin  (flat image based at virt 0xffffffff80210000 = phys 0x210000)
 import struct, sys, os, hashlib
 
-ELF = sys.argv[1] if len(sys.argv) > 1 else \
-    "/Volumes/1TB/dev/Playstation5Development/Prototype Globe PS5 Devkit Files/700_t_manu_kernel.elf"
+# Source: the 7.00 manu kernel ELF (700_t_manu_kernel.elf, r205498). Supply its path as
+# argument 1, or via the KERNEL700_ELF environment variable; otherwise it is looked for
+# next to this script.
+ELF = (sys.argv[1] if len(sys.argv) > 1
+       else os.environ.get("KERNEL700_ELF")
+       or os.path.join(os.path.dirname(os.path.abspath(__file__)), "700_t_manu_kernel.elf"))
+if not os.path.exists(ELF):
+    sys.exit("7.00 kernel ELF not found: %r\n"
+             "Pass the path as argument 1, or set KERNEL700_ELF." % ELF)
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kernel_raw_700.bin")
 BASE = 0xffffffff80210000                  # lowest PT_LOAD vaddr (load == link base)
 

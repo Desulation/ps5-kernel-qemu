@@ -1,7 +1,7 @@
 # PS5 7.00 "manu" kernel — QEMU boot profile
 
 A second boot profile for this kit, targeting the **7.00_t_release_manu** prototype
-kernel (`Prototype Globe PS5 Devkit Files/700_t_manu_kernel.elf`, `r205498`, built
+kernel (`700_t_manu_kernel.elf`, `r205498`, built
 Jul 11 2023) instead of the 13.60 live dump the main kit uses.
 
 Status: **REACHES THE KERNEL BANNER.** The real Sony 7.00 kernel prints its own

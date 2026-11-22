@@ -177,11 +177,11 @@ ld.lld -m elf_i386 -T wp3_boot/tramp.ld -o ps5_700/trampoline_700.elf /tmp/t.o
 bash ps5_700/run_700.sh 45                                # serial -> ps5_700/serial_700.log
 ```
 Toolchain: `nasm`, `ld.lld` (`brew install nasm lld`), `qemu-system-x86_64` (tested 11.1.3).
-Source ELF: `../Prototype Globe PS5 Devkit Files/700_t_manu_kernel.elf`.
-The scan/match pickles + venv used for analysis live in the PREVIOUS session scratchpad
-`/private/tmp/claude-501/-Volumes-1TB-dev-Playstation5Development/e0815a1e-.../scratchpad`
-(may be cleared by cleanup; regenerate with the funcdiff pipeline in
-`../Prototype Globe PS5 Devkit Files/funcdiff_700manu_vs_1422/scripts/` if gone).
+Source ELF: the 7.00 manu kernel `700_t_manu_kernel.elf` — pass its path as argument 1
+to `build_kernel_700.py`, or set `KERNEL700_ELF`.
+The scan/match pickles + venv used for analysis live in a scratch dir outside the repo
+(may be cleared by cleanup; regenerate with the `funcdiff_700manu_vs_1422/scripts/`
+pipeline if gone).
 
 ## Load geometry (trampoline_700.asm)
 - Flat image at phys `0x210000` / virt `0xffffffff80210000` (`KERN_PHYS`/`KERN_SIZE 0x44CA000`).
