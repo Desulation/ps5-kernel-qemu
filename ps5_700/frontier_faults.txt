@@ -1,0 +1,2 @@
+     0: v=0e e=0002 i=0 cpl=0 IP=0020:ffffffff80494174 pc=ffffffff80494174 SP=0028:ffffffff83630c60 CR2=ffffafe106741000
+     1: v=08 e=0000 i=0 cpl=0 IP=0020:ffffffff80628cb1 pc=ffffffff80628cb1 SP=0028:ffffffff83630980 env->regs[R_EAX]=0000000000000028

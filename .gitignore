@@ -1,0 +1,22 @@
+# macOS metadata — the external drive sprinkles AppleDouble (._*) and Finder
+# files everywhere; none of it belongs in the repo.
+._*
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+
+# Regenerable build / run artifacts (not source):
+#   kernel_raw_700.bin  — 68 MB, rebuilt by ps5_700/build_kernel_700.py from the 7.00 ELF
+#   *.elf trampolines    — rebuilt by nasm + ld.lld from the .asm
+#   serial/qemu logs     — QEMU boot output
+#   *.o                  — nasm intermediates
+*.o
+ps5_700/kernel_raw_700*.bin
+ps5_700/trampoline_700.elf
+ps5_700/serial_700.log
+ps5_700/qemu_700.err
